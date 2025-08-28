@@ -12,8 +12,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Build TestApp
-        run: |
-          xcodebuild -scheme TestApp -configuration Debug -derivedDataPath build
+        run: swift build --configuration debug
 
       - name: Upload .app artifact
         uses: actions/upload-artifact@v4
