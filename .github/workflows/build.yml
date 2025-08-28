@@ -1,0 +1,22 @@
+name: Build macOS App
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Build TestApp
+        run: |
+          xcodebuild -scheme TestApp -configuration Debug -derivedDataPath build
+
+      - name: Upload .app artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: TestApp
+          path: build/Build/Products/Debug/TestApp.app
