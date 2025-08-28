@@ -16,7 +16,7 @@ jobs:
           xcodebuild -scheme TestApp -configuration Debug -derivedDataPath build
 
       - name: Upload .app artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: TestApp
           path: build/Build/Products/Debug/TestApp.app
